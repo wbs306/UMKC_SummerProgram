@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 
 <html>
-    
-    <head>
-        <title>Patient Infomation</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <title>Patient Infomation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-   <script src="https://cdn.rawgit.com/smart-on-fhir/client-js/v0.1.8/dist/fhir-client.js"></script>   
-     <script src="js/htmlMaker.js"></script>        
-   <script src="js/index.js"></script> 
+    <script src="https://cdn.rawgit.com/smart-on-fhir/client-js/v0.1.8/dist/fhir-client.js"></script>
+    <script src="js/htmlMaker.js"></script>
+    <script src="js/index.js"></script>
     <script id="patient-template" type="text/html">
         <tr id="data_row_{{id}}"  class="data_row" data-patient-id="{{id}}">
             <td>{{name}}</td><td>{{birth_date}}</td><td>{{gender}}</td>
         </tr>
-        </script>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <div class="filters">
-            <input placeholder="Type Patient Name" type="text" id="textbox">
-        </div>
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="filters">
+        <input placeholder="Type Patient Name" type="text" id="textbox">
+    </div>
     <table id="patients">
-        <tr><th data-sort-by='name'><span class='sort_status' id='name_sort'>&uarr;</span>Name</th><th data-sort-by='birth_date'><span class='sort_status' id='birth_date_sort'></span>Birthdate</th><th data-sort-by='gender'><span class='sort_status' id='gender_sort'></span>Gender</th></tr>
+        <tr>
+            <th data-sort-by='name'><span class='sort_status' id='name_sort'>&uarr;</span>Name</th>
+            <th data-sort-by='birth_date'><span class='sort_status' id='birth_date_sort'></span>Birthdate</th>
+            <th data-sort-by='gender'><span class='sort_status' id='gender_sort'></span>Gender</th>
+        </tr>
     </table>
-    </body>
+</body>
+
 </html>
