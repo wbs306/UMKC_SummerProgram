@@ -87,14 +87,6 @@ label#birthdate_label{
     left:30px;
 }
 
-#search_box{
-    position:absolute;
-    top:100px;
-    left:30px;
-    width:350px;
-    height:20px;
-}
-
 #birthdate_box{
     position:absolute;
     top:30px;

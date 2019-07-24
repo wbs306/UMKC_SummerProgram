@@ -19,16 +19,70 @@
 </head>
 
 <body>
-    <div class="filters">
-        <input placeholder="Type Patient Name" type="text" id="textbox">
+    <div id="list">
+        <fieldset id="search_box">
+            <legend id="field_title">Search box</legend>
+            <div>
+                <div class="input_field">
+                    <p class="title">Birthdate:</p>
+                    <input type="date">
+                </div>
+                <div class="input_field">
+                    <p class="title">Patient name</p>
+                    <input type="text">
+                </div>
+                <div class="input_field">
+                    <p class="title">Gender</p>
+                    <div>
+                        <input type="radio" name="gender" value="m"><span>Male</span>
+                        <br>
+                        <input type="radio" name="gender" value="f"><span>Female</span>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <table id="patients">
+            <tr>
+                <th data-sort-by='name'><span class='sort_status' id='name_sort'>&uarr;</span>Name</th>
+                <th data-sort-by='birth_date'><span class='sort_status' id='birth_date_sort'></span>Birthdate</th>
+                <th data-sort-by='gender'><span class='sort_status' id='gender_sort'></span>Gender</th>
+            </tr>
+        </table>
     </div>
-    <table id="patients">
-        <tr>
-            <th data-sort-by='name'><span class='sort_status' id='name_sort'>&uarr;</span>Name</th>
-            <th data-sort-by='birth_date'><span class='sort_status' id='birth_date_sort'></span>Birthdate</th>
-            <th data-sort-by='gender'><span class='sort_status' id='gender_sort'></span>Gender</th>
-        </tr>
-    </table>
+    <div id="table">
+        <div id="top_table">
+
+            <div>
+                <span id="name">XXXXX</span>
+                <span> | </span>
+                <span id="basic_info">XXX83 years old</span>
+            </div>
+
+            <div>
+                <p class="table_title">ardress</p>
+                <p id="add">XXXXMAUS</p>
+            </div>
+
+        </div>
+        <div id="bottom_table">
+            <p class="table_title">Medcations</p>
+
+            <table>
+                <tr class="medications">
+                    <td class="medical_name">pencidladi V Poiasding 250MG </td>
+                    <td class="medical_date">1994-09-02</td>
+                </tr>
+                <tr class="medications">
+                    <td class="medical_name">pencidladi V Poiasding 250MG </td>
+                    <td class="medical_date">1994-09-02</td>
+                </tr>
+                <tr class="medications">
+                    <td class="medical_name">pencidladi V Poiasding 250MG </td>
+                    <td class="medical_date">1994-09-02</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>
