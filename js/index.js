@@ -17,16 +17,36 @@ function init() {
         });
 
     $("#textbox").on("keyup", live_search);
+    $("#male").click(function () {
+        live_search();
+    });
+    $("#female").click(function () {
+        live_search();
+    });
 }
 
 function live_search() {
+    function get_gender() {
+        if ($("#male").is(":checked"))
+            return "male";
+        else if ($("#female").is(":checked"))
+            return "female";
+        else
+            return "";
+    }
     var text = $("#textbox").val();
+    var date = $("#datebox").val();
+    var gender = get_gender();
 
     filtered_database = [];
     for (var i = 0; i < database.length; i++) {
         var name = database[i].name;
+        var gen = database[i].gender;
+        var birth = database[i].birth_date;
         var name_search = name.toUpperCase().search(text.toUpperCase().trim()) != -1;
-        if (name_search)
+        var birth_search = (birth === date);
+        var gender_search = (gender === gen);
+        if (birth_search || gender_search && name_search)
             filtered_database.push(database[i]);
     }
     displayPatients(filtered_database);
@@ -99,15 +119,15 @@ function displayPatientDetails(id) {
 
 function loadMedications(id) {
     var medication = [];
-    smart.api.search({ type: 'MedicationOrder', query: {patient: id}}).then(
+    smart.api.search({ type: 'MedicationOrder', query: { patient: id } }).then(
         function (bundle) {
             var entry = bundle.data.entry;
-            if(entry) {
+            if (entry) {
                 for (let i = 0; i < entry.length; ++i) {
                     var resource = entry[i].resource
                     var date = resource.dateWritten;
                     var medication_name = resource.medicationCodeableConcept.text;
-                    medication.push({name: medication_name, date: date});
+                    medication.push({ name: medication_name, date: date });
                 }
             }
             $("#detail").html("");
