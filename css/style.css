@@ -169,19 +169,43 @@ span.sort_status{
     margin-right:5px;
 }
 #table {
-    position: relative;
-    float: right;
+    position: absolute;
+    //float: right;
     border-style: groove none;
-    top: -2320px;
-    left: -80px;
+    right:5px;
+	top:30px;
+	//top: -2250px;
+    //left: -50px;
     background: auto;
+	overflow: scroll;
+	max-height: 500px;
+	max-width: 500px;
 }
 #top_table div .table_title {
     border-style: groove none;
+	font-style: oblique;
+	font-weight:bold;
+	background-color: darkgray;
+	font-size:normal;
 }
 #top_table div #add {
     border-style: groove none;
+	font-style:italic;
+	font-size:large;
+	text-decoration: underline;
 }
 #table #bottom_table .table_title {
 	border-style: groove none;
+	font-style:oblique;
+	font-weight:bold;
+	background-color: darkgray;
+	font-size:normal;
+}
+
+#table #top_table {
+	font-style:italic;
+}
+
+#table #bottom_table #detail {
+	background-color:floralwhite;
 }
