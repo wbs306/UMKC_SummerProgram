@@ -1,6 +1,7 @@
 table#patients{
+	position:relative;
     margin-left:0px;
-    width:928px;
+    width:528px;
     margin-bottom:40px;
 }
 
@@ -9,8 +10,8 @@ table{
     border:1px solid lightgray;
 }
 #list #search_box {
-    background-image: url("http://s.cn.bing.net/az/hprichbg/rb/NorthPole_ZH-CN14730815128_1366x768.jpg");
-	width:900px;
+    background-image: url("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1156249813,261438375&fm=26&gp=0.jpg");
+	width:500px;
 	margin-left:0px;
 	text-align:center;
 }
@@ -72,6 +73,10 @@ table td{
   overflow: hidden; */
   /* border-radius: 100px; */
   box-shadow: 5px 5px 5px #aaa;
+}
+
+table tr.selected_row{
+    background-color:rgb(202,236,244);
 }
 
 .data_row, .medications{
@@ -162,4 +167,21 @@ label#birthdate_label{
 span.sort_status{
     color:gray;
     margin-right:5px;
+}
+#table {
+    position: relative;
+    float: right;
+    border-style: groove none;
+    top: -2320px;
+    left: -80px;
+    background: auto;
+}
+#top_table div .table_title {
+    border-style: groove none;
+}
+#top_table div #add {
+    border-style: groove none;
+}
+#table #bottom_table .table_title {
+	border-style: groove none;
 }
