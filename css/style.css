@@ -58,26 +58,25 @@ table td{
 }
 
 
-table tr:hover{
-    background-color:rgb(240,240,240);
+.data_row:hover, .medications:hover{
+    /* background-color:rgb(240,240,240);
     cursor:pointer;
 	position: relative;
-  appearance: none;
+  appearance: none; */
   background: #f72359;
-  padding: 1em 2em;
-  border: none;
-  color: black;
-  font-size: 1.2em;
+  /* padding: 1em 2em; */
+  /* border: none; */
+  /* color: black;
   cursor: pointer;
   outline: none;
-  overflow: hidden;
-  border-radius: 100px;
+  overflow: hidden; */
+  /* border-radius: 100px; */
+  box-shadow: 5px 5px 5px #aaa;
 }
 
-table tr.selected_row{
-    background-color:rgb(202,236,244);
-}
-
+.data_row, .medications{
+    transition: all 0.05s;
+}·
 
 .medication_details{
     position:fixed;
