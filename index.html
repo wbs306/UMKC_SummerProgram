@@ -25,7 +25,7 @@
         <div>
             <span id="name">{{name}}</span>
             <span> | </span>
-            <span id="basic_info">{{age}}</span>
+            <span id="basic_info">{{age}} years old</span>
         </div>
 
         <div>
@@ -42,7 +42,7 @@
             <legend id="field_title">Search box</legend>
             <div>
                 <div class="input_field">
-                    <p class="title">Birthdate:</p>
+                    <p class="title">Birthdate</p>
                     <input type="date" id="datebox">
                 </div>
                 <div class="input_field">
@@ -59,20 +59,21 @@
                 </div>
             </div>
         </fieldset>
-        <table id="patients">
-            <tr>
-                <th data-sort-by='name'><span class='sort_status' id='name_sort'>&uarr;</span>Name</th>
-                <th data-sort-by='birth_date'><span class='sort_status' id='birth_date_sort'></span>Birthdate</th>
-                <th data-sort-by='gender'><span class='sort_status' id='gender_sort'></span>Gender</th>
-            </tr>
-        </table>
+        <div id="patients_list">
+            <table id="patients">
+                <tr>
+                    <th data-sort-by='name'><span class='sort_status' id='name_sort'>&uarr;</span>Name</th>
+                    <th data-sort-by='birth_date'><span class='sort_status' id='birth_date_sort'></span>Birthdate</th>
+                    <th data-sort-by='gender'><span class='sort_status' id='gender_sort'></span>Gender</th>
+                </tr>
+            </table>
+        </div>
     </div>
     <div id="table">
         <div id="top_table">
         </div>
         <div id="bottom_table">
             <p class="table_title">Medcations</p>
-
             <table id="detail">
             </table>
         </div>

@@ -1,14 +1,24 @@
-table#patients{
-	position:relative;
+#patients, #patients_list{
+    position:relative;
     margin-left:0px;
-    width:528px;
     margin-bottom:40px;
+    width: 528px;
+}
+
+#patients_list {
+    height: 500px;
+    overflow: scroll;
 }
 
 table{
     border-collapse:collapse;
     border:1px solid lightgray;
 }
+
+#table {
+    display: none;
+}
+
 #list #search_box {
     background-image: url("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1156249813,261438375&fm=26&gp=0.jpg");
 	width:500px;

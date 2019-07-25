@@ -98,6 +98,7 @@ function displayPatients(data) {
         $(".data_row").removeClass("selected_row");
         var id = $(this).attr("data-patient-id");
         $(this).addClass("selected_row");
+        $("#table").css("display", "block");
         displayPatientDetails(id);
         loadMedications(id);
     });
