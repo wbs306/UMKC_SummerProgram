@@ -1,3 +1,4 @@
+'use strict';
 var smart;
 var database = [];
 var filtered_database = [];
@@ -5,7 +6,7 @@ var filtered_database = [];
 $(document).ready(init);
 
 function init() {
-    var smart = FHIR.client({
+    smart = FHIR.client({
         serviceUrl: 'https://r2.smarthealthit.org'
     });
 
@@ -41,11 +42,20 @@ function loadPatients(results) {
         var gender = entry.gender;
         var race = "";
         var address = "";
+        var age = new Date().getFullYear() - parseInt(birth_date.split("-")[0])
         if (entry.address) {
             var address_object = entry.address[0];
             address = clean(address_object, "city") + ", " + clean(address_object, "state") + ", " + clean(address_object, "country") + " " + clean(address_object, "postalCode");
         }
-        var patient = { id: id, name: name[0].given + " " + name[0].family, birth_date: birth_date, gender: gender, race: race, address: address };
+        var patient = {
+            id: id,
+            name: name[0].given + " " + name[0].family,
+            birth_date: birth_date,
+            gender: gender,
+            race: race,
+            address: address,
+            age: age
+        };
         database.push(patient);
     }
     filtered_database = database;
@@ -73,7 +83,43 @@ function displayPatients(data) {
     });
 }
 
+function displayPatientDetails(id) {
+    var template = $("#detail_template").html();
+    var html_maker = new htmlMaker(template);
+    var data;
+    for (var i of filtered_database) {
+        if (i.id === id) {
+            data = i;
+            break;
+        }
+    }
+    var html = html_maker.getHTML(data);
+    $("#top_table").html(html);
+}
 
+function loadMedications(id) {
+    var medication = [];
+    smart.api.search({ type: 'MedicationOrder', query: {patient: id}}).then(
+        function (bundle) {
+            var entry = bundle.data.entry;
+            if(entry) {
+                for (let i = 0; i < entry.length; ++i) {
+                    var resource = entry[i].resource
+                    var date = resource.dateWritten;
+                    var medication_name = resource.medicationCodeableConcept.text;
+                    medication.push({name: medication_name, date: date});
+                }
+            }
+            $("#detail").html("");
+            for (var i of medication) {
+                var template = $("#medication_template").html();
+                var html_maker = new htmlMaker(template);
+                var html = html_maker.getHTML(i);
+                $("#detail").append(html);
+            }
+        }
+    );
+}
 
 function sort_comp(field, desc) {
     return function (a, b) {

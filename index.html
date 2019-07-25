@@ -15,6 +15,24 @@
             <td>{{name}}</td><td>{{birth_date}}</td><td>{{gender}}</td>
         </tr>
     </script>
+    <script id="medication_template" type="text/html">
+        <tr class="medications">
+            <td class="medical_name">{{name}}</td>
+            <td class="medical_date">{{date}}</td>
+        </tr>
+    </script>
+    <script id="detail_template" type="text/html">
+        <div>
+            <span id="name">{{name}}</span>
+            <span> | </span>
+            <span id="basic_info">{{age}}</span>
+        </div>
+
+        <div>
+            <p class="table_title">Address</p>
+            <p id="add">{{address}}</p>
+        </div>
+    </script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -51,35 +69,11 @@
     </div>
     <div id="table">
         <div id="top_table">
-
-            <div>
-                <span id="name">XXXXX</span>
-                <span> | </span>
-                <span id="basic_info">XXX83 years old</span>
-            </div>
-
-            <div>
-                <p class="table_title">ardress</p>
-                <p id="add">XXXXMAUS</p>
-            </div>
-
         </div>
         <div id="bottom_table">
             <p class="table_title">Medcations</p>
 
-            <table>
-                <tr class="medications">
-                    <td class="medical_name">pencidladi V Poiasding 250MG </td>
-                    <td class="medical_date">1994-09-02</td>
-                </tr>
-                <tr class="medications">
-                    <td class="medical_name">pencidladi V Poiasding 250MG </td>
-                    <td class="medical_date">1994-09-02</td>
-                </tr>
-                <tr class="medications">
-                    <td class="medical_name">pencidladi V Poiasding 250MG </td>
-                    <td class="medical_date">1994-09-02</td>
-                </tr>
+            <table id="detail">
             </table>
         </div>
     </div>
