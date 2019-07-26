@@ -219,4 +219,8 @@ span.sort_status{
     padding: 13px 0px; 
     text-align: center;
     background-color: #66afe9;
+}body img {
+	position: absolute;
+	left:700px;
+	top:90px
 }
