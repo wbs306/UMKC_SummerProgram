@@ -182,7 +182,7 @@ span.sort_status{
     border: solid 1px black;
 }
 
-#table, .medications, #detail, #right_panel {
+#table, .medications, #detail, #right_panel, #logo_table {
     width: 450px;
 }
 
