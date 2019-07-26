@@ -45,7 +45,7 @@ function live_search() {
         var birth = database[i].birth_date;
         var name_search = name.toUpperCase().search(text.toUpperCase().trim()) != -1;
         var birth_search = (birth === date);
-        var gender_search = (gender === gen);
+        var gender_search = (gender === gen || gender === "");
         if (birth_search || gender_search && name_search)
             filtered_database.push(database[i]);
     }
