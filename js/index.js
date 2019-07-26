@@ -2,6 +2,7 @@
 var smart;
 var database = [];
 var filtered_database = [];
+var ages = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 $(document).ready(init);
 
@@ -23,6 +24,88 @@ function init() {
     $("#female").click(function () {
         live_search();
     });
+}
+
+function get_charts(ages) {
+    var scale = 60;
+    var charts = {
+        backgroundColor: '#fff',
+
+        title: {
+            text: '',
+            left: 'center',
+            top: 20,
+            textStyle: {
+                color: '#ccc'
+            }
+        },
+
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+
+        visualMap: {
+            show: false,
+            min: 50,
+            max: 600,
+            inRange: {
+                colorLightness: [0, 1]
+            }
+        },
+        series: [
+            {
+                name: 'ages',
+                type: 'pie',
+                radius: '55%',
+                center: ['50%', '50%'],
+                data: [
+                    { value: ages[0] * scale, name: '0-10' },
+                    { value: ages[1] * scale, name: '10-20' },
+                    { value: ages[2] * scale, name: '20-30' },
+                    { value: ages[3] * scale, name: '30-40' },
+                    { value: ages[4] * scale, name: '40-50' },
+                    { value: ages[5] * scale, name: '50-60' },
+                    { value: ages[6] * scale, name: '60-70' },
+                    { value: ages[7] * scale, name: '70-80' },
+                    { value: ages[8] * scale, name: '80-90' },
+                    { value: ages[9] * scale, name: '90-100' }
+                ].sort(function (a, b) { return a.value - b.value; }),
+                roseType: 'radius',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'rgba(0, 0, 0)'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        },
+                        smooth: 0.2,
+                        length: 10,
+                        length2: 20
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#c23531',
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                },
+
+                animationType: 'scale',
+                animationEasing: 'elasticOut',
+                animationDelay: function (idx) {
+                    return Math.random() * 200;
+                }
+            }
+        ]
+    };
+    return charts;
 }
 
 function live_search() {
@@ -77,7 +160,33 @@ function loadPatients(results) {
             age: age
         };
         database.push(patient);
+        if (age >= 0 && age < 10)
+            ages[0] += 1;
+        else if (age >= 10 && age < 20)
+            ages[1] += 1;
+        else if (age >= 20 && age < 30)
+            ages[2] += 1;
+        else if (age >= 30 && age < 40)
+            ages[3] += 1;
+        else if (age >= 40 && age < 50)
+            ages[4] += 1;
+        else if (age >= 50 && age < 60)
+            ages[5] += 1;
+        else if (age >= 60 && age < 70)
+            ages[6] += 1;
+        else if (age >= 70 && age < 80)
+            ages[7] += 1;
+        else if (age >= 80 && age < 90)
+            ages[8] += 1;
+        else if (age >= 90 && age < 100)
+            ages[9] += 1;
+
     }
+    $("#charts").attr("_echarts_instance_", "");
+    $("#charts").css("height", 300);
+    // $("#charts").css("display", "block");
+    var charts = echarts.init(document.getElementById("charts"));
+    charts.setOption(get_charts(ages));
     filtered_database = database;
     filtered_database.sort(sort_comp("name", false));
 }

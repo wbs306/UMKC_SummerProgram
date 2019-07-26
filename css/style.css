@@ -180,13 +180,15 @@ span.sort_status{
 #table {
     display: none;
     border: solid 1px black;
-    float: left;
-    margin-left: 80px;
-    margin-top: 260px;
 }
 
-#table, .medications, #detail {
+#table, .medications, #detail, #right_panel {
     width: 450px;
+}
+
+#right_panel {
+    float: left;
+    margin-left: 80px;
 }
 
 
